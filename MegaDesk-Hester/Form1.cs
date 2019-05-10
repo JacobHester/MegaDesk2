@@ -10,11 +10,43 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Hester
 {
-    public partial class Form1 : Form
+    public partial class HomeForm : Form
     {
-        public Form1()
+        public HomeForm()
         {
             InitializeComponent();
+        }
+
+        private void NewQuote_Click(object sender, EventArgs e)
+        {
+            MakeQuote NewQuoteForm = new MakeQuote();
+            NewQuoteForm.Tag = this;
+            NewQuoteForm.Show();
+            Hide();
+        }
+
+        private void ViewAll_Click(object sender, EventArgs e)
+        {
+            ViewQuotes ViewQuotesForm = new ViewQuotes();
+            ViewQuotesForm.Tag = this;
+            ViewQuotesForm.Show();
+            Hide();
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            SearchQuotes ViewSearchQuotes = new SearchQuotes()
+            {
+                Tag = this,
+            };
+
+            ViewSearchQuotes.Show();
+            Hide();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
