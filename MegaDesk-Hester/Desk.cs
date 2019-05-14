@@ -9,4 +9,13 @@ namespace MegaDesk_Hester
     class Desk
     {
     }
+
+    public enum DeskMaterial
+    {
+        Laminate,
+        Oak,
+        Veneer,
+        Rosewood,
+        Pine
+    };
 }

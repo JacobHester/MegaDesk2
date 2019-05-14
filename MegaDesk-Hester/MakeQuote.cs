@@ -48,5 +48,10 @@ namespace MegaDesk_Hester
                 this.SamplePic.Load("C:\\Users\\Lazjh\\Documents\\Spring 2019\\CIT 365\\veneer.jpg");
             }
         }
+
+        private void PlaceOrder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

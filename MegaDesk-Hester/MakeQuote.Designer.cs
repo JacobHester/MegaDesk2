@@ -227,6 +227,7 @@
             this.PlaceOrder.TabIndex = 14;
             this.PlaceOrder.Text = "Place Order";
             this.PlaceOrder.UseVisualStyleBackColor = true;
+            this.PlaceOrder.Click += new System.EventHandler(this.PlaceOrder_Click);
             // 
             // QuoteLabel
             // 

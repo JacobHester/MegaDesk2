@@ -9,4 +9,15 @@ namespace MegaDesk_Hester
     class DeskQuote
     {
     }
+
+    public enum Rush
+    {
+        noRush,
+        threeDay,
+        fiveDay,
+        sevenDay,
+    };
+
+    //toString("c")
+    //Json array of deskquote with desk inside
 }
