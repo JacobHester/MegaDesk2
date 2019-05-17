@@ -36,14 +36,16 @@
             this.DrawersLabel = new System.Windows.Forms.Label();
             this.DrawersNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.MaterialLabel = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.MaterialListBox = new System.Windows.Forms.ListBox();
+            this.RushComboBox = new System.Windows.Forms.ComboBox();
             this.RushLabel = new System.Windows.Forms.Label();
             this.SampleLabel = new System.Windows.Forms.Label();
             this.SamplePic = new System.Windows.Forms.PictureBox();
             this.CostLabel = new System.Windows.Forms.Label();
             this.PlaceOrder = new System.Windows.Forms.Button();
             this.QuoteLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.WidthNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepthNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrawersNumericUpDown)).BeginInit();
@@ -64,7 +66,7 @@
             // WidthLabel
             // 
             this.WidthLabel.AutoSize = true;
-            this.WidthLabel.Location = new System.Drawing.Point(12, 69);
+            this.WidthLabel.Location = new System.Drawing.Point(12, 108);
             this.WidthLabel.Name = "WidthLabel";
             this.WidthLabel.Size = new System.Drawing.Size(48, 17);
             this.WidthLabel.TabIndex = 1;
@@ -72,7 +74,7 @@
             // 
             // WidthNumericUpDown
             // 
-            this.WidthNumericUpDown.Location = new System.Drawing.Point(155, 64);
+            this.WidthNumericUpDown.Location = new System.Drawing.Point(155, 103);
             this.WidthNumericUpDown.Maximum = new decimal(new int[] {
             96,
             0,
@@ -94,7 +96,7 @@
             // 
             // DepthNumericUpDown
             // 
-            this.DepthNumericUpDown.Location = new System.Drawing.Point(155, 108);
+            this.DepthNumericUpDown.Location = new System.Drawing.Point(155, 148);
             this.DepthNumericUpDown.Maximum = new decimal(new int[] {
             48,
             0,
@@ -117,7 +119,7 @@
             // DepthLabel
             // 
             this.DepthLabel.AutoSize = true;
-            this.DepthLabel.Location = new System.Drawing.Point(12, 113);
+            this.DepthLabel.Location = new System.Drawing.Point(12, 153);
             this.DepthLabel.Name = "DepthLabel";
             this.DepthLabel.Size = new System.Drawing.Size(50, 17);
             this.DepthLabel.TabIndex = 3;
@@ -126,7 +128,7 @@
             // DrawersLabel
             // 
             this.DrawersLabel.AutoSize = true;
-            this.DrawersLabel.Location = new System.Drawing.Point(12, 153);
+            this.DrawersLabel.Location = new System.Drawing.Point(12, 198);
             this.DrawersLabel.Name = "DrawersLabel";
             this.DrawersLabel.Size = new System.Drawing.Size(133, 17);
             this.DrawersLabel.TabIndex = 5;
@@ -134,7 +136,7 @@
             // 
             // DrawersNumericUpDown
             // 
-            this.DrawersNumericUpDown.Location = new System.Drawing.Point(155, 153);
+            this.DrawersNumericUpDown.Location = new System.Drawing.Point(155, 196);
             this.DrawersNumericUpDown.Maximum = new decimal(new int[] {
             7,
             0,
@@ -147,45 +149,34 @@
             // MaterialLabel
             // 
             this.MaterialLabel.AutoSize = true;
-            this.MaterialLabel.Location = new System.Drawing.Point(12, 194);
+            this.MaterialLabel.Location = new System.Drawing.Point(12, 247);
             this.MaterialLabel.Name = "MaterialLabel";
             this.MaterialLabel.Size = new System.Drawing.Size(111, 17);
             this.MaterialLabel.TabIndex = 7;
             this.MaterialLabel.Text = "Surface Material";
             // 
-            // listBox1
+            // MaterialListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "Oak",
-            "Laminate",
-            "Rosewood",
-            "Pine",
-            "Veneer"});
-            this.listBox1.Location = new System.Drawing.Point(155, 194);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
-            this.listBox1.TabIndex = 8;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
+            this.MaterialListBox.FormattingEnabled = true;
+            this.MaterialListBox.ItemHeight = 16;
+            this.MaterialListBox.Location = new System.Drawing.Point(154, 247);
+            this.MaterialListBox.Name = "MaterialListBox";
+            this.MaterialListBox.Size = new System.Drawing.Size(120, 84);
+            this.MaterialListBox.TabIndex = 8;
+            this.MaterialListBox.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
-            // comboBox1
+            // RushComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "No Rush 14 Day",
-            "3 Day Rush",
-            "5 Day Rush",
-            "7 Day Rush"});
-            this.comboBox1.Location = new System.Drawing.Point(155, 297);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 9;
+            this.RushComboBox.FormattingEnabled = true;
+            this.RushComboBox.Location = new System.Drawing.Point(154, 352);
+            this.RushComboBox.Name = "RushComboBox";
+            this.RushComboBox.Size = new System.Drawing.Size(121, 24);
+            this.RushComboBox.TabIndex = 9;
             // 
             // RushLabel
             // 
             this.RushLabel.AutoSize = true;
-            this.RushLabel.Location = new System.Drawing.Point(12, 297);
+            this.RushLabel.Location = new System.Drawing.Point(12, 352);
             this.RushLabel.Name = "RushLabel";
             this.RushLabel.Size = new System.Drawing.Size(100, 17);
             this.RushLabel.TabIndex = 10;
@@ -239,19 +230,38 @@
             this.QuoteLabel.TabIndex = 15;
             this.QuoteLabel.Text = "quote";
             // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(15, 63);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(113, 17);
+            this.NameLabel.TabIndex = 16;
+            this.NameLabel.Text = "Customer Name:";
+            this.NameLabel.UseMnemonic = false;
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(154, 57);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(121, 22);
+            this.NameTextBox.TabIndex = 17;
+            // 
             // MakeQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NameTextBox);
+            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.QuoteLabel);
             this.Controls.Add(this.PlaceOrder);
             this.Controls.Add(this.CostLabel);
             this.Controls.Add(this.SamplePic);
             this.Controls.Add(this.SampleLabel);
             this.Controls.Add(this.RushLabel);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.RushComboBox);
+            this.Controls.Add(this.MaterialListBox);
             this.Controls.Add(this.MaterialLabel);
             this.Controls.Add(this.DrawersNumericUpDown);
             this.Controls.Add(this.DrawersLabel);
@@ -263,6 +273,7 @@
             this.Name = "MakeQuote";
             this.Text = "MakeQuote";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MakeQuote_FormClosing);
+            this.Load += new System.EventHandler(this.MakeQuote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.WidthNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepthNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrawersNumericUpDown)).EndInit();
@@ -282,13 +293,15 @@
         private System.Windows.Forms.Label DrawersLabel;
         private System.Windows.Forms.NumericUpDown DrawersNumericUpDown;
         private System.Windows.Forms.Label MaterialLabel;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox MaterialListBox;
+        private System.Windows.Forms.ComboBox RushComboBox;
         private System.Windows.Forms.Label RushLabel;
         private System.Windows.Forms.Label SampleLabel;
         private System.Windows.Forms.PictureBox SamplePic;
         private System.Windows.Forms.Label CostLabel;
         private System.Windows.Forms.Button PlaceOrder;
         private System.Windows.Forms.Label QuoteLabel;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.TextBox NameTextBox;
     }
 }
