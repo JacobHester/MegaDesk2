@@ -8,14 +8,18 @@ namespace MegaDesk_Hester
 {
     class DeskQuote
     {
+        public Desk NewDesk { get; set; }
+        public string Name { get; set; }
+        public DateTime QuoteDate { get; set; }
+        public string RushShip { get; set; }
     }
 
     public enum Rush
     {
-        noRush,
-        threeDay,
-        fiveDay,
-        sevenDay,
+        Standard,
+        Three_Day,
+        Five_Day,
+        Seven_Day,
     };
 
     //toString("c")

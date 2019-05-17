@@ -51,7 +51,39 @@ namespace MegaDesk_Hester
 
         private void PlaceOrder_Click(object sender, EventArgs e)
         {
+            Desk desk = new Desk()
+            {
+                Width = this.WidthNumericUpDown.Value,
+                Depth = this.DepthNumericUpDown.Value,
+                NumDrawers = this.DrawersNumericUpDown.Value,
+                SurfaceMaterial = this.MaterialListBox.GetItemText(MaterialListBox.SelectedItem)
+                
+            };
 
+            DeskQuote deskQuote = new DeskQuote()
+            {
+                NewDesk = desk,
+                Name = this.NameTextBox.Text,
+                QuoteDate = DateTime.Now,
+                RushShip = this.RushComboBox.GetItemText(RushComboBox.SelectedItem)
+            };
+
+
+
+        }
+
+        private void MakeQuote_Load(object sender, EventArgs e)
+        {
+            foreach (var item in Enum.GetNames(typeof(DeskMaterial)))
+            {
+                MaterialListBox.Items.Add(item);
+            }
+
+            foreach (Rush item in Enum.GetValues(typeof(Rush)))
+            {
+                RushComboBox.Items.Add(item);
+            }
         }
     }
 }
+
