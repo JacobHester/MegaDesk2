@@ -12,9 +12,14 @@ namespace MegaDesk_Hester
 {
     public partial class DisplayQuote : Form
     {
-        public DisplayQuote()
+        private DeskQuote _deskQuote;
+
+        public DisplayQuote(DeskQuote deskQuote)
         {
             InitializeComponent();
+
+            _deskQuote = deskQuote;
+
         }
     }
 }

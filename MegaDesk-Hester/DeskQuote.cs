@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_Hester
 {
-    class DeskQuote
+    public class DeskQuote
     {
         public Desk NewDesk { get; set; }
         public string Name { get; set; }
         public DateTime QuoteDate { get; set; }
-        public string RushShip { get; set; }
+        public Rush Rush { get; set; }
     }
 
     public enum Rush
