@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MegaDesk_Hester
@@ -8,6 +10,7 @@ namespace MegaDesk_Hester
         public MakeQuote()
         {
             InitializeComponent();
+
         }
 
         private void CancelNewForm_Click(object sender, EventArgs e)
@@ -24,7 +27,7 @@ namespace MegaDesk_Hester
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListBox listBox = (ListBox)sender;
-            string material = (string)listBox.SelectedItem;
+            string material = (string)listBox.Text;
 
 
             if (material == "Oak")
@@ -51,38 +54,56 @@ namespace MegaDesk_Hester
 
         private void PlaceOrder_Click(object sender, EventArgs e)
         {
-            Desk desk = new Desk()
+
+            try
             {
-                Width = this.WidthNumericUpDown.Value,
-                Depth = this.DepthNumericUpDown.Value,
-                NumDrawers = this.DrawersNumericUpDown.Value,
-                SurfaceMaterial = this.MaterialListBox.GetItemText(MaterialListBox.SelectedItem)
-                
-            };
+                Desk desk = new Desk()
+                {
+                    Width = this.WidthNumericUpDown.Value,
+                    Depth = this.DepthNumericUpDown.Value,
+                    NumDrawers = this.DrawersNumericUpDown.Value,
+                    SurfaceMaterial = (SurfaceMaterial)Enum.Parse(typeof(SurfaceMaterial), MaterialListBox.Text)
 
-            DeskQuote deskQuote = new DeskQuote()
+                };
+
+                DeskQuote deskQuote = new DeskQuote()
+                {
+                    NewDesk = desk,
+                    Name = this.NameTextBox.Text,
+                    QuoteDate = DateTime.Now,
+                    Rush = (Rush)Enum.Parse(typeof(Rush), RushComboBox.SelectedValue.ToString())
+                };
+
+                DisplayQuote displayQuote = new DisplayQuote(deskQuote);
+                displayQuote.Tag = this;
+                displayQuote.Show();
+                Hide();
+
+            }
+            catch (System.ArgumentException)
             {
-                NewDesk = desk,
-                Name = this.NameTextBox.Text,
-                QuoteDate = DateTime.Now,
-                RushShip = this.RushComboBox.GetItemText(RushComboBox.SelectedItem)
-            };
-
-
+                System.Windows.Forms.MessageBox.Show("Please Enter Values for All Parameters!", "ERROR");
+            }
 
         }
 
         private void MakeQuote_Load(object sender, EventArgs e)
         {
-            foreach (var item in Enum.GetNames(typeof(DeskMaterial)))
-            {
-                MaterialListBox.Items.Add(item);
-            }
+            List<SurfaceMaterial> materials = 
+                    Enum.GetValues(typeof(SurfaceMaterial))
+                    .Cast<SurfaceMaterial>()
+                    .ToList();
 
-            foreach (Rush item in Enum.GetValues(typeof(Rush)))
-            {
-                RushComboBox.Items.Add(item);
-            }
+            MaterialListBox.DataSource = materials;
+            MaterialListBox.SelectedIndex = -1;
+
+            List<Rush> rush =
+                Enum.GetValues(typeof(Rush))
+                .Cast<Rush>()
+                .ToList();
+
+            RushComboBox.DataSource = rush;
+            RushComboBox.SelectedIndex = -1;
         }
     }
 }

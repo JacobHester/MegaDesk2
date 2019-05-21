@@ -6,17 +6,7 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_Hester
 {
-    
-
-    class Desk
-    {
-        public decimal Width { get; set; }
-        public decimal Depth { get; set; }
-        public decimal NumDrawers { get; set; }
-        public string SurfaceMaterial { get; set; }
-    }
-
-    public enum DeskMaterial
+    public enum SurfaceMaterial
     {
         Laminate,
         Oak,
@@ -24,4 +14,14 @@ namespace MegaDesk_Hester
         Rosewood,
         Pine
     };
+
+    public class Desk
+    {
+        public decimal Width { get; set; }
+        public decimal Depth { get; set; }
+        public decimal NumDrawers { get; set; }
+        public SurfaceMaterial SurfaceMaterial { get; set; }
+    }
+
+    
 }
