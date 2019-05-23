@@ -83,6 +83,9 @@
     <Compile Include="ViewQuotes.Designer.cs">
       <DependentUpon>ViewQuotes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DisplayQuote.resx">
+      <DependentUpon>DisplayQuote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
