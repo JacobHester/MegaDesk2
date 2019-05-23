@@ -32,23 +32,23 @@ namespace MegaDesk_Hester
 
             if (material == "Oak")
             {
-                this.SamplePic.Load("C:\\Users\\Lazjh\\Documents\\Spring 2019\\CIT 365\\oak.jpg");
+                this.SamplePic.Load("oak.jpg");
             }
             else if (material == "Laminate")
             {
-                this.SamplePic.Load("C:\\Users\\Lazjh\\Documents\\Spring 2019\\CIT 365\\laminate.jpg");
+                this.SamplePic.Load("laminate.jpg");
             }
             else if (material == "Rosewood")
             {
-                this.SamplePic.Load("C:\\Users\\Lazjh\\Documents\\Spring 2019\\CIT 365\\rosewood.jpg");
+                this.SamplePic.Load("rosewood.jpg");
             }
             else if (material == "Pine")
             {
-                this.SamplePic.Load("C:\\Users\\Lazjh\\Documents\\Spring 2019\\CIT 365\\pine.jpg");
+                this.SamplePic.Load("pine.jpg");
             }
             else if (material == "Veneer")
             {
-                this.SamplePic.Load("C:\\Users\\Lazjh\\Documents\\Spring 2019\\CIT 365\\veneer.jpg");
+                this.SamplePic.Load("veneer.jpg");
             }
         }
 
