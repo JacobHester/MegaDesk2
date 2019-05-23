@@ -65,20 +65,25 @@ namespace MegaDesk_Hester
                     SurfaceMaterial = (SurfaceMaterial)Enum.Parse(typeof(SurfaceMaterial), MaterialListBox.Text)
 
                 };
-
-                DeskQuote deskQuote = new DeskQuote()
+                try
                 {
-                    NewDesk = desk,
-                    Name = this.NameTextBox.Text,
-                    QuoteDate = DateTime.Now,
-                    Rush = (Rush)Enum.Parse(typeof(Rush), RushComboBox.SelectedValue.ToString())
-                };
+                    DeskQuote deskQuote = new DeskQuote()
+                    {
+                        NewDesk = desk,
+                        Name = this.NameTextBox.Text,
+                        QuoteDate = DateTime.Now,
+                        Rush = (Rush)Enum.Parse(typeof(Rush), RushComboBox.SelectedValue.ToString())
+                    };
 
-                DisplayQuote displayQuote = new DisplayQuote(deskQuote);
-                HomeForm homeform = (HomeForm)Tag;
-                displayQuote.Tag = homeform;
-                displayQuote.Show();
-                Hide();
+                    DisplayQuote displayQuote = new DisplayQuote(deskQuote);
+                    HomeForm homeform = (HomeForm)Tag;
+                    displayQuote.Tag = homeform;
+                    displayQuote.Show();
+                    Hide();
+
+                } catch (System.NullReferenceException) { System.Windows.Forms.MessageBox.Show("Please Enter Values for All Parameters!", "ERROR"); }
+
+                
 
             }
             catch (System.ArgumentException)
