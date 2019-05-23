@@ -75,7 +75,8 @@ namespace MegaDesk_Hester
                 };
 
                 DisplayQuote displayQuote = new DisplayQuote(deskQuote);
-                displayQuote.Tag = this;
+                HomeForm homeform = (HomeForm)Tag;
+                displayQuote.Tag = homeform;
                 displayQuote.Show();
                 Hide();
 

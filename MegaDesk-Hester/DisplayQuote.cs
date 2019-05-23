@@ -20,6 +20,34 @@ namespace MegaDesk_Hester
 
             _deskQuote = deskQuote;
 
+            NameTextBox.Text = _deskQuote.Name;
+            WidthNumericUpDown.Value = _deskQuote.NewDesk.Width;
+            DepthNumericUpDown.Value = _deskQuote.NewDesk.Depth;
+            DrawersNumericUpDown.Value = _deskQuote.NewDesk.NumDrawers;
+            MaterialText.Text = _deskQuote.NewDesk.SurfaceMaterial.ToString();
+            RushText.Text = _deskQuote.Rush.ToString();
+
+            NameTextBox.Enabled = false;
+            WidthNumericUpDown.Enabled = false;
+            DepthNumericUpDown.Enabled = false;
+            DrawersNumericUpDown.Enabled = false;
+            MaterialText.Enabled = false;
+            RushText.Enabled = false;
+
+            QuoteLabel.Text = _deskQuote.QuoteTotal(_deskQuote).ToString("c");
+
+
+        }
+
+        private void DisplayQuote_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            HomeForm homeForm = (HomeForm)Tag;
+            homeForm.Show();
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
