@@ -39,13 +39,10 @@ namespace MegaDesk_Hester
             string[] parsedInput = input.Split('\n');
             for (i = 0; i<3; i++)
             {
-
                 for (j = 0; j < 3; j++)
                 {
                     int.TryParse( parsedInput[counter],out rushArray[i,j]);
                     counter++;
-
-
                 }
       
             }

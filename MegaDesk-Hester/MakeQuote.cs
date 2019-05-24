@@ -2,6 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.IO;
+
 
 namespace MegaDesk_Hester
 {
@@ -29,7 +32,7 @@ namespace MegaDesk_Hester
             ListBox listBox = (ListBox)sender;
             string material = (string)listBox.Text;
 
-
+            /*
             if (material == "Oak")
             {
                 this.SamplePic.Load("oak.jpg");
@@ -50,11 +53,13 @@ namespace MegaDesk_Hester
             {
                 this.SamplePic.Load("veneer.jpg");
             }
+            */
+
         }
 
         private void PlaceOrder_Click(object sender, EventArgs e)
         {
-
+            DeskQuote deskQuote= null;
             try
             {
                 Desk desk = new Desk()
@@ -67,23 +72,15 @@ namespace MegaDesk_Hester
                 };
                 try
                 {
-                    DeskQuote deskQuote = new DeskQuote()
+                    deskQuote = new DeskQuote()
                     {
                         NewDesk = desk,
                         Name = this.NameTextBox.Text,
                         QuoteDate = DateTime.Now,
                         Rush = (Rush)Enum.Parse(typeof(Rush), RushComboBox.SelectedValue.ToString())
                     };
-
-                    DisplayQuote displayQuote = new DisplayQuote(deskQuote);
-                    HomeForm homeform = (HomeForm)Tag;
-                    displayQuote.Tag = homeform;
-                    displayQuote.Show();
-                    Hide();
-
-                } catch (System.NullReferenceException) { System.Windows.Forms.MessageBox.Show("Please Enter Values for All Parameters!", "ERROR"); }
-
-                
+                } 
+            catch (System.NullReferenceException) { System.Windows.Forms.MessageBox.Show("Please Enter Values for All Parameters!", "ERROR"); }
 
             }
             catch (System.ArgumentException)
@@ -91,6 +88,30 @@ namespace MegaDesk_Hester
                 System.Windows.Forms.MessageBox.Show("Please Enter Values for All Parameters!", "ERROR");
             }
 
+                    DisplayQuote displayQuote = new DisplayQuote(deskQuote);
+                    HomeForm homeform = (HomeForm)Tag;
+                    displayQuote.Tag = homeform;
+                    displayQuote.Show();
+                    Hide();
+            // reads the json from the file
+            string currentQuotes = File.ReadAllText("quotes.json");
+            
+            // create the deskQoute list here so that we retain scope access
+            List<DeskQuote> deskQuoteList;
+            // if there are no previous qoutes, create the first quote list, otherwise deserialize the JSON into the list
+            if (string.IsNullOrEmpty(currentQuotes)){
+                 deskQuoteList = new List<DeskQuote>();
+            }
+            else{
+                deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(currentQuotes);
+            }
+            // add the new qoute to the list        
+            deskQuoteList.Add(deskQuote);
+            // using a string as a buffer, serialize the quote list back to JSON format
+            string newJson = JsonConvert.SerializeObject(deskQuoteList);
+            //write the JSON to the file.
+            File.WriteAllText("quotes.json", newJson);
+            
         }
 
         private void MakeQuote_Load(object sender, EventArgs e)
