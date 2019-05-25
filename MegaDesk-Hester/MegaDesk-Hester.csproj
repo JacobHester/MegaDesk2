@@ -108,6 +108,9 @@
       <DependentUpon>ViewQuotes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Desk.datasource" />
+    <None Include="Properties\DataSources\DeskQuote.datasource" />
+    <None Include="Properties\DataSources\Newtonsoft.Json.JsonConvert.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

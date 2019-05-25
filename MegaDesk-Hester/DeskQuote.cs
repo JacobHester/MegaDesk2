@@ -13,6 +13,7 @@ namespace MegaDesk_Hester
         public string Name { get; set; }
         public DateTime QuoteDate { get; set; }
         public Rush Rush { get; set; }
+        public decimal Price { get; set; }
 
         public decimal QuoteTotal(DeskQuote deskQuote)
         {
@@ -103,8 +104,8 @@ namespace MegaDesk_Hester
                 }
                 else { rushCost = rushArray[2,1]; }
             }
-
-            return quoteTotal + additionalMaterialCost + surfaceMaterialCost + rushCost + drawerCost;
+            Price = quoteTotal + additionalMaterialCost + surfaceMaterialCost + rushCost + drawerCost;
+            return Price;
         }
     }
 
