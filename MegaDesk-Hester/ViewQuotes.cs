@@ -15,8 +15,7 @@ namespace MegaDesk_Hester
 {
     public partial class ViewQuotes : Form
     {
-        private DataGridView dataGridView = new DataGridView();
-        private BindingSource bindingSource = new BindingSource();
+        
         public ViewQuotes()
         {
             InitializeComponent();
@@ -44,7 +43,33 @@ namespace MegaDesk_Hester
 
         private void InitializeGridView()
         {
-  
+            quotesGridView.AutoGenerateColumns = false;
+            quotesGridView.ColumnCount = 8;
+
+            quotesGridView.Columns[0].Name = "Customer Name";
+            quotesGridView.Columns[0].DataPropertyName = "Name";
+
+            quotesGridView.Columns[1].Name = "Quoted Price";
+            quotesGridView.Columns[1].DataPropertyName = "Price";
+            quotesGridView.Columns[1].DefaultCellStyle.Format = "c";
+            quotesGridView.Columns[2].Name = "Width";
+            quotesGridView.Columns[2].DataPropertyName = "Width";
+
+            quotesGridView.Columns[3].Name = "Depth";
+            quotesGridView.Columns[3].DataPropertyName = "depth";
+
+            quotesGridView.Columns[4].Name = "Number of Drawers";
+            quotesGridView.Columns[4].DataPropertyName = "NumDrawers";
+
+            quotesGridView.Columns[5].Name = "Surface Material";
+            quotesGridView.Columns[5].DataPropertyName = "SurfaceMaterial";
+
+            quotesGridView.Columns[6].Name = "Quote Date";
+            quotesGridView.Columns[6].DataPropertyName = "QuoteDate";
+
+            quotesGridView.Columns[7].Name = "Shipping Option";
+            quotesGridView.Columns[7].DataPropertyName = "Rush";
+
             // reads the json from the file
             string currentQuotes = File.ReadAllText("quotes.json");
                 // create the deskQoute list here so that we retain scope access
@@ -66,10 +91,6 @@ namespace MegaDesk_Hester
 
         }
 
-        private void DeskBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 

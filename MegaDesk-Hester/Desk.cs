@@ -19,7 +19,7 @@ namespace MegaDesk_Hester
     {
         public decimal Width { get; set; }
         public decimal Depth { get; set; }
-        public decimal NumDrawers { get; set; }
+        public int NumDrawers { get; set; }
         public SurfaceMaterial SurfaceMaterial { get; set; }
     }
 
