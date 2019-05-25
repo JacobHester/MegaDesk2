@@ -65,8 +65,8 @@ namespace MegaDesk_Hester
                 Desk desk = new Desk()
                 {
                     Width = this.WidthNumericUpDown.Value,
-                    Depth = this.DepthNumericUpDown.Value,
-                    NumDrawers = this.DrawersNumericUpDown.Value,
+                    Depth = DepthNumericUpDown.Value,
+                    NumDrawers = (int) DrawersNumericUpDown.Value,
                     SurfaceMaterial = (SurfaceMaterial)Enum.Parse(typeof(SurfaceMaterial), MaterialListBox.Text)
 
                 };
@@ -108,7 +108,7 @@ namespace MegaDesk_Hester
             // add the new qoute to the list        
             deskQuoteList.Add(deskQuote);
             // using a string as a buffer, serialize the quote list back to JSON format
-            string newJson = JsonConvert.SerializeObject(deskQuoteList);
+            string newJson = JsonConvert.SerializeObject(deskQuoteList,Formatting.Indented);
             //write the JSON to the file.
             File.WriteAllText("quotes.json", newJson);
             

@@ -1,0 +1,50 @@
+[
+  {
+    "NewDesk": {
+      "Width": 24.0,
+      "Depth": 24.0,
+      "NumDrawers": 1,
+      "SurfaceMaterial": 1
+    },
+    "Name": "asd",
+    "QuoteDate": "2019-05-24T16:58:04.599064-06:00",
+    "Rush": 1,
+    "Price": 0.0
+  },
+  {
+    "NewDesk": {
+      "Width": 24.0,
+      "Depth": 24.0,
+      "NumDrawers": 0,
+      "SurfaceMaterial": 1
+    },
+    "Name": "asdf",
+    "QuoteDate": "2019-05-24T17:02:11.0010436-06:00",
+    "Rush": 0,
+    "Price": 0.0
+  },
+  {
+    "NewDesk": {
+      "Width": 29.0,
+      "Depth": 30.0,
+      "NumDrawers": 5,
+      "SurfaceMaterial": 2
+    },
+    "Name": "Jorgy",
+    "QuoteDate": "2019-05-24T19:39:47.7501281-06:00",
+    "Rush": 1,
+    "Price": 635.0
+  },
+  {
+    "NewDesk": {
+      "Width": 30.0,
+      "Depth": 30.0,
+      "NumDrawers": 3,
+      "SurfaceMaterial": 3
+    },
+    "Name": "Connor",
+    "QuoteDate": "2019-05-24T20:03:39.075851-06:00",
+    "Rush": 3,
+    "Price": 680.0
+  }
+]
