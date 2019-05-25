@@ -75,7 +75,7 @@ namespace MegaDesk_Hester
                 // create the deskQoute list here so that we retain scope access
                 List<DeskQuote> deskQuoteList= JsonConvert.DeserializeObject<List<DeskQuote>>(currentQuotes);
 
-
+            // this uses LINQ (Language INtegrated Query) to reformat the deskquote info to work better with a DataGridView
             quotesGridView.DataSource = new BindingSource() { DataSource = deskQuoteList.Select(DeskQuote => new
             {
                 DeskQuote.Name,
